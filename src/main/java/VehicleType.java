@@ -3,8 +3,24 @@ public enum VehicleType {
 
     private int value;
 
-    private VehicleType(int value){
+    VehicleType(int value){
         this.value = value;
+    }
+
+    public static VehicleType fromInteger(int x) {
+        switch(x) {
+            case 1:
+                return MOTOBIKE;
+            case 2:
+                return CAR;
+            case 3:
+                return LORRY;
+            case 4:
+                return TRUCK;
+            default:
+                return TRUCK;
+        }
+
     }
 
     public int getValue(){

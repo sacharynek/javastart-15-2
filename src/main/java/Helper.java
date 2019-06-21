@@ -16,9 +16,7 @@ public class Helper {
         }
 
         //trzeba zrobić metode wyboru
-        vehicle.setVehicleType(VehicleType.LORRY);
-
-        sc.nextLine();
+        vehicle.setVehicleType(VehicleType.fromInteger(Integer.parseInt(sc.nextLine())));
 
         System.out.println("podaj markę");
         vehicle.setMake(sc.nextLine());
