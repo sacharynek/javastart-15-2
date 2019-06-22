@@ -3,12 +3,16 @@ public enum VehicleType {
 
     private int value;
 
-    VehicleType(int value){
+    VehicleType(int value) {
         this.value = value;
     }
 
+    public int getValue() {
+        return this.value;
+    }
+
     public static VehicleType fromInteger(int x) {
-        switch(x) {
+        switch (x) {
             case 1:
                 return MOTOBIKE;
             case 2:
@@ -23,13 +27,8 @@ public enum VehicleType {
 
     }
 
-    public int getValue(){
-        return this.value;
-    }
-
     @Override
-    public String toString(){
-        return this.name() + " - "+this.getValue();
+    public String toString() {
+        return this.name() + " - " + this.getValue();
     }
-
 }

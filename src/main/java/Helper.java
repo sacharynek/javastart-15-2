@@ -1,10 +1,15 @@
-import java.sql.SQLOutput;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Queue;
 import java.util.Scanner;
 
-public class Helper {
+class Helper {
 
 
-    public static Vehicle readVehicle() {
+    static Vehicle readVehicle() {
         Scanner sc = new Scanner(System.in);
         Vehicle vehicle = new Vehicle();
 
@@ -15,7 +20,6 @@ public class Helper {
             System.out.println(type);
         }
 
-        //trzeba zrobić metode wyboru
         vehicle.setVehicleType(VehicleType.fromInteger(Integer.parseInt(sc.nextLine())));
 
         System.out.println("podaj markę");
@@ -34,5 +38,35 @@ public class Helper {
 
         System.out.println(vehicle);
         return vehicle;
+    }
+
+    static void readBufferToQueue(String fileName, Queue<Vehicle> queue) throws FileNotFoundException {
+        File file = new File(fileName);
+        Scanner sreader = new Scanner(file);
+
+        while (sreader.hasNextLine()) {
+            String line = sreader.nextLine();
+            String[] vehicleArgs = line.split(",");
+            Vehicle vehicle = new Vehicle();
+            vehicle.setVehicleType(VehicleType.fromInteger(Integer.parseInt(vehicleArgs[0])));
+            vehicle.setMake(vehicleArgs[1]);
+            vehicle.setModel(vehicleArgs[2]);
+            vehicle.setYear(Integer.parseInt(vehicleArgs[3]));
+            vehicle.setMileage(Integer.parseInt(vehicleArgs[4]));
+            vehicle.setVin(vehicleArgs[5]);
+            queue.add(vehicle);
+        }
+    }
+
+    static void writeQueueToFile(String fileName, Queue<Vehicle> queue) throws IOException {
+        System.out.println("Program has finished");
+        if (!queue.isEmpty()) {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            for (Vehicle vehicle : queue) {
+                writer.write(vehicle.toString());
+                writer.newLine();
+            }
+            writer.close();
+        }
     }
 }

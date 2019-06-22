@@ -4,7 +4,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +15,7 @@ public class Vehicle {
     private String vin;
 
     void setVehicleType(VehicleType vehicleType) {
-        if(null == vehicleType){
+        if (null == vehicleType) {
             throw new NullPointerException("vehicle type musn't be null");
         }
         this.vehicleType = vehicleType;
