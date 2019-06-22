@@ -7,10 +7,6 @@ public enum VehicleType {
         this.value = value;
     }
 
-    public int getValue() {
-        return this.value;
-    }
-
     public static VehicleType fromInteger(int x) {
         switch (x) {
             case 1:
@@ -25,6 +21,10 @@ public enum VehicleType {
                 return TRUCK;
         }
 
+    }
+
+    public int getValue() {
+        return this.value;
     }
 
     @Override
