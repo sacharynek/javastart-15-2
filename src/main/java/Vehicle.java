@@ -58,7 +58,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return this.getVehicleType().getValue() + "," + this.getMake() + ","
-                + this.getModel() + "," + this.getYear() + "," + this.getMileage() + "," + this.getVin();
+        return this.getVehicleType().getValue() + ", " + this.getMake() + ", "
+                + this.getModel() + ", " + this.getYear() + ", " + this.getMileage() + ", " + this.getVin();
     }
 }

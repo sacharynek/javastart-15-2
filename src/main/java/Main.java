@@ -32,7 +32,7 @@ public class Main {
                     queue.add(Helper.readVehicle());
                     break;
                 case 2:
-                    System.out.println(queue.poll());
+                    System.out.println("Do przegląu idzie: "+queue.poll());
                     break;
                 case 3:
                     System.out.println(queue);
